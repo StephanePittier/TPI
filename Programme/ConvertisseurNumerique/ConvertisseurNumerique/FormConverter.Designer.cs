@@ -1,6 +1,6 @@
 ﻿namespace ConvertisseurNumerique
 {
-    partial class Form1
+    partial class FormConverter
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -55,6 +55,7 @@
             this.convertButton.TabIndex = 0;
             this.convertButton.Text = "convertir";
             this.convertButton.UseVisualStyleBackColor = true;
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
             // decimalLabel
             // 
@@ -113,11 +114,17 @@
             // typesComboBox
             // 
             this.typesComboBox.FormattingEnabled = true;
+            this.typesComboBox.Items.AddRange(new object[] {
+            "Décimal | 10",
+            "Binaire | 2",
+            "Octal | 8",
+            "Hexadécimal | 16",
+            "Code BCD",
+            "Code GRAY"});
             this.typesComboBox.Location = new System.Drawing.Point(16, 44);
             this.typesComboBox.Name = "typesComboBox";
             this.typesComboBox.Size = new System.Drawing.Size(121, 21);
             this.typesComboBox.TabIndex = 7;
-            this.typesComboBox.Text = "Décimal (10)";
             // 
             // valueTextBox
             // 
@@ -125,55 +132,54 @@
             this.valueTextBox.Name = "valueTextBox";
             this.valueTextBox.Size = new System.Drawing.Size(217, 20);
             this.valueTextBox.TabIndex = 8;
-            this.valueTextBox.Text = "2.25";
             // 
             // decimalTextBox
             // 
+            this.decimalTextBox.Enabled = false;
             this.decimalTextBox.Location = new System.Drawing.Point(63, 112);
             this.decimalTextBox.Name = "decimalTextBox";
             this.decimalTextBox.Size = new System.Drawing.Size(100, 20);
             this.decimalTextBox.TabIndex = 9;
-            this.decimalTextBox.Text = "2.25";
             // 
             // binaryTextBox
             // 
+            this.binaryTextBox.Enabled = false;
             this.binaryTextBox.Location = new System.Drawing.Point(63, 167);
             this.binaryTextBox.Name = "binaryTextBox";
             this.binaryTextBox.Size = new System.Drawing.Size(100, 20);
             this.binaryTextBox.TabIndex = 10;
-            this.binaryTextBox.Text = "10.01";
             // 
             // octalTextBox
             // 
+            this.octalTextBox.Enabled = false;
             this.octalTextBox.Location = new System.Drawing.Point(260, 112);
             this.octalTextBox.Name = "octalTextBox";
             this.octalTextBox.Size = new System.Drawing.Size(100, 20);
             this.octalTextBox.TabIndex = 11;
-            this.octalTextBox.Text = "2.2";
             // 
             // hexaTextBox
             // 
+            this.hexaTextBox.Enabled = false;
             this.hexaTextBox.Location = new System.Drawing.Point(260, 167);
             this.hexaTextBox.Name = "hexaTextBox";
             this.hexaTextBox.Size = new System.Drawing.Size(100, 20);
             this.hexaTextBox.TabIndex = 12;
-            this.hexaTextBox.Text = "2.4";
             // 
             // bcdTextBox
             // 
+            this.bcdTextBox.Enabled = false;
             this.bcdTextBox.Location = new System.Drawing.Point(464, 112);
             this.bcdTextBox.Name = "bcdTextBox";
             this.bcdTextBox.Size = new System.Drawing.Size(100, 20);
             this.bcdTextBox.TabIndex = 13;
-            this.bcdTextBox.Text = "0010 . 0010 0101";
             // 
             // grayTextBox
             // 
+            this.grayTextBox.Enabled = false;
             this.grayTextBox.Location = new System.Drawing.Point(464, 167);
             this.grayTextBox.Name = "grayTextBox";
             this.grayTextBox.Size = new System.Drawing.Size(100, 20);
             this.grayTextBox.TabIndex = 14;
-            this.grayTextBox.Text = "Indosponible";
             // 
             // helpButton
             // 
@@ -192,8 +198,9 @@
             this.calculateButton.TabIndex = 16;
             this.calculateButton.Text = "opérations";
             this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
-            // Form1
+            // FormConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +222,7 @@
             this.Controls.Add(this.binaryLabel);
             this.Controls.Add(this.decimalLabel);
             this.Controls.Add(this.convertButton);
-            this.Name = "Form1";
+            this.Name = "FormConverter";
             this.Text = "Convertisseur";
             this.ResumeLayout(false);
             this.PerformLayout();

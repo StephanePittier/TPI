@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ConvertisseurNumerique
 {
-    public partial class Form2 : Form
+    public partial class FormCalculator : Form
     {
-        public Form2()
+        public FormCalculator()
         {
             InitializeComponent();
         }

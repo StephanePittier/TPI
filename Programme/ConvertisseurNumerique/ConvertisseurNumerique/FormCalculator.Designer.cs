@@ -1,6 +1,6 @@
 ﻿namespace ConvertisseurNumerique
 {
-    partial class Form2
+    partial class FormCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,11 @@
             this.type1ComboBox.Name = "type1ComboBox";
             this.type1ComboBox.Size = new System.Drawing.Size(110, 21);
             this.type1ComboBox.TabIndex = 0;
-            this.type1ComboBox.Text = "Octal (8)";
+            this.type1ComboBox.Items.AddRange(new object[] {
+            "Décimal | 10",
+            "Binaire | 2",
+            "Octal | 8",
+            "Hexadécimal | 16",});
             // 
             // type2ComboBox
             // 
@@ -55,7 +59,11 @@
             this.type2ComboBox.Name = "type2ComboBox";
             this.type2ComboBox.Size = new System.Drawing.Size(110, 21);
             this.type2ComboBox.TabIndex = 1;
-            this.type2ComboBox.Text = "Hexadécimal (16)";
+            this.type2ComboBox.Items.AddRange(new object[] {
+            "Décimal | 10",
+            "Binaire | 2",
+            "Octal | 8",
+            "Hexadécimal | 16",});
             // 
             // value1TextBox
             // 
@@ -63,7 +71,6 @@
             this.value1TextBox.Name = "value1TextBox";
             this.value1TextBox.Size = new System.Drawing.Size(100, 20);
             this.value1TextBox.TabIndex = 2;
-            this.value1TextBox.Text = "75";
             // 
             // value2TextBox
             // 
@@ -71,7 +78,6 @@
             this.value2TextBox.Name = "value2TextBox";
             this.value2TextBox.Size = new System.Drawing.Size(100, 20);
             this.value2TextBox.TabIndex = 3;
-            this.value2TextBox.Text = "3A";
             // 
             // operationsComboBox
             // 
@@ -80,7 +86,11 @@
             this.operationsComboBox.Name = "operationsComboBox";
             this.operationsComboBox.Size = new System.Drawing.Size(100, 21);
             this.operationsComboBox.TabIndex = 4;
-            this.operationsComboBox.Text = "+";
+            this.operationsComboBox.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/",});
             // 
             // value1Label
             // 
@@ -116,7 +126,7 @@
             this.resultPanel.Size = new System.Drawing.Size(276, 292);
             this.resultPanel.TabIndex = 8;
             // 
-            // Form2
+            // FormCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +140,7 @@
             this.Controls.Add(this.value1TextBox);
             this.Controls.Add(this.type2ComboBox);
             this.Controls.Add(this.type1ComboBox);
-            this.Name = "Form2";
+            this.Name = "FormCalculator";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

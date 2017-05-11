@@ -2,9 +2,9 @@ H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumeri
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\bin\Debug\ConvertisseurNumerique.exe
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\bin\Debug\ConvertisseurNumerique.pdb
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.csprojResolveAssemblyReference.cache
-H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.Form1.resources
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.Properties.Resources.resources
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.csproj.GenerateResource.Cache
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.exe
 H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.pdb
-H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.Form2.resources
+H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.FormConverter.resources
+H:\Applications-Projets\TPI\Programme\ConvertisseurNumerique\ConvertisseurNumerique\obj\Debug\ConvertisseurNumerique.FormCalculator.resources
