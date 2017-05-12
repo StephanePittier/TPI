@@ -45,6 +45,8 @@
             this.grayTextBox = new System.Windows.Forms.TextBox();
             this.helpButton = new System.Windows.Forms.Button();
             this.calculateButton = new System.Windows.Forms.Button();
+            this.typesLabel = new System.Windows.Forms.Label();
+            this.userValueLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // convertButton
@@ -200,11 +202,31 @@
             this.calculateButton.UseVisualStyleBackColor = true;
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
+            // typesLabel
+            // 
+            this.typesLabel.AutoSize = true;
+            this.typesLabel.Location = new System.Drawing.Point(15, 25);
+            this.typesLabel.Name = "typesLabel";
+            this.typesLabel.Size = new System.Drawing.Size(37, 13);
+            this.typesLabel.TabIndex = 17;
+            this.typesLabel.Text = "Type :";
+            // 
+            // userValueLabel
+            // 
+            this.userValueLabel.AutoSize = true;
+            this.userValueLabel.Location = new System.Drawing.Point(140, 25);
+            this.userValueLabel.Name = "userValueLabel";
+            this.userValueLabel.Size = new System.Drawing.Size(89, 13);
+            this.userValueLabel.TabIndex = 18;
+            this.userValueLabel.Text = "valeur utilisateur :";
+            // 
             // FormConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 215);
+            this.Controls.Add(this.userValueLabel);
+            this.Controls.Add(this.typesLabel);
             this.Controls.Add(this.calculateButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.grayTextBox);
@@ -248,6 +270,8 @@
         private System.Windows.Forms.TextBox grayTextBox;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.Label typesLabel;
+        private System.Windows.Forms.Label userValueLabel;
     }
 }
 
