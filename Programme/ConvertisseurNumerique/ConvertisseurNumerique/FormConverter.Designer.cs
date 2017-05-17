@@ -44,7 +44,7 @@
             this.bcdTextBox = new System.Windows.Forms.TextBox();
             this.grayTextBox = new System.Windows.Forms.TextBox();
             this.helpButton = new System.Windows.Forms.Button();
-            this.calculateButton = new System.Windows.Forms.Button();
+            this.calculatorButton = new System.Windows.Forms.Button();
             this.typesLabel = new System.Windows.Forms.Label();
             this.userValueLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -192,15 +192,15 @@
             this.helpButton.Text = "Aide ?";
             this.helpButton.UseVisualStyleBackColor = true;
             // 
-            // calculateButton
+            // calculatorButton
             // 
-            this.calculateButton.Location = new System.Drawing.Point(518, 41);
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(75, 23);
-            this.calculateButton.TabIndex = 16;
-            this.calculateButton.Text = "opérations";
-            this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            this.calculatorButton.Location = new System.Drawing.Point(518, 41);
+            this.calculatorButton.Name = "calculatorButton";
+            this.calculatorButton.Size = new System.Drawing.Size(75, 23);
+            this.calculatorButton.TabIndex = 16;
+            this.calculatorButton.Text = "opérations";
+            this.calculatorButton.UseVisualStyleBackColor = true;
+            this.calculatorButton.Click += new System.EventHandler(this.calculatorButton_Click);
             // 
             // typesLabel
             // 
@@ -227,7 +227,7 @@
             this.ClientSize = new System.Drawing.Size(600, 215);
             this.Controls.Add(this.userValueLabel);
             this.Controls.Add(this.typesLabel);
-            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.calculatorButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.grayTextBox);
             this.Controls.Add(this.bcdTextBox);
@@ -269,7 +269,7 @@
         private System.Windows.Forms.TextBox bcdTextBox;
         private System.Windows.Forms.TextBox grayTextBox;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.Button calculatorButton;
         private System.Windows.Forms.Label typesLabel;
         private System.Windows.Forms.Label userValueLabel;
     }

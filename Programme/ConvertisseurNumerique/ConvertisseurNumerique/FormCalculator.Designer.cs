@@ -42,28 +42,28 @@
             // type1ComboBox
             // 
             this.type1ComboBox.FormattingEnabled = true;
-            this.type1ComboBox.Location = new System.Drawing.Point(50, 60);
-            this.type1ComboBox.Name = "type1ComboBox";
-            this.type1ComboBox.Size = new System.Drawing.Size(110, 21);
-            this.type1ComboBox.TabIndex = 0;
             this.type1ComboBox.Items.AddRange(new object[] {
             "Décimal | 10",
             "Binaire | 2",
             "Octal | 8",
-            "Hexadécimal | 16",});
+            "Hexadécimal | 16"});
+            this.type1ComboBox.Location = new System.Drawing.Point(50, 60);
+            this.type1ComboBox.Name = "type1ComboBox";
+            this.type1ComboBox.Size = new System.Drawing.Size(110, 21);
+            this.type1ComboBox.TabIndex = 0;
             // 
             // type2ComboBox
             // 
             this.type2ComboBox.FormattingEnabled = true;
-            this.type2ComboBox.Location = new System.Drawing.Point(50, 180);
-            this.type2ComboBox.Name = "type2ComboBox";
-            this.type2ComboBox.Size = new System.Drawing.Size(110, 21);
-            this.type2ComboBox.TabIndex = 1;
             this.type2ComboBox.Items.AddRange(new object[] {
             "Décimal | 10",
             "Binaire | 2",
             "Octal | 8",
-            "Hexadécimal | 16",});
+            "Hexadécimal | 16"});
+            this.type2ComboBox.Location = new System.Drawing.Point(50, 180);
+            this.type2ComboBox.Name = "type2ComboBox";
+            this.type2ComboBox.Size = new System.Drawing.Size(110, 21);
+            this.type2ComboBox.TabIndex = 1;
             // 
             // value1TextBox
             // 
@@ -82,15 +82,15 @@
             // operationsComboBox
             // 
             this.operationsComboBox.FormattingEnabled = true;
-            this.operationsComboBox.Location = new System.Drawing.Point(100, 117);
-            this.operationsComboBox.Name = "operationsComboBox";
-            this.operationsComboBox.Size = new System.Drawing.Size(100, 21);
-            this.operationsComboBox.TabIndex = 4;
             this.operationsComboBox.Items.AddRange(new object[] {
             "+",
             "-",
             "*",
-            "/",});
+            "/"});
+            this.operationsComboBox.Location = new System.Drawing.Point(100, 117);
+            this.operationsComboBox.Name = "operationsComboBox";
+            this.operationsComboBox.Size = new System.Drawing.Size(100, 21);
+            this.operationsComboBox.TabIndex = 4;
             // 
             // value1Label
             // 
@@ -118,6 +118,7 @@
             this.calculateButton.TabIndex = 7;
             this.calculateButton.Text = "Calculer";
             this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // resultPanel
             // 

@@ -32,7 +32,7 @@ namespace ConvertisseurNumerique
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void calculateButton_Click(object sender, EventArgs e)
+        private void calculatorButton_Click(object sender, EventArgs e)
         {
             Calculator = new FormCalculator();
             Calculator.Show();
@@ -62,9 +62,9 @@ namespace ConvertisseurNumerique
             {
                 char[] splitters = new char[] { '|' };
                 string test = Convert.ToString(typesComboBox.SelectedItem);
-                string[] laCase = test.Split(splitters);
+                string[] basetype = test.Split(splitters);
 
-                 baseNumber = Convert.ToInt32(laCase[1]);
+                 baseNumber = Convert.ToInt32(basetype[1]);
                  convertToAll(valueTextBox.Text, baseNumber);
             }
             
@@ -86,12 +86,12 @@ namespace ConvertisseurNumerique
         /// <param name="userValue"></param>
         private void convertToAll(string userValue, int baseType)
         {           
-            int binary = Convert.ToInt32(userValue, baseType);
+            int value = Convert.ToInt32(userValue, baseType);
 
-            binaryTextBox.Text = Convert.ToString(binary, 2);
-            octalTextBox.Text = Convert.ToString(binary, 8);
-            decimalTextBox.Text = Convert.ToString(binary, 10);
-            hexaTextBox.Text = Convert.ToString(binary, 16);
+            binaryTextBox.Text = Convert.ToString(value, 2);
+            octalTextBox.Text = Convert.ToString(value, 8);
+            decimalTextBox.Text = Convert.ToString(value, 10);
+            hexaTextBox.Text = Convert.ToString(value, 16);
 
             convertToBcd(decimalTextBox.Text);
             convertToGray(binaryTextBox.Text);
@@ -132,6 +132,7 @@ namespace ConvertisseurNumerique
         /// <param name="bcdValue"></param>
         private void convertBcdToDecimal(string bcdValue)
         {
+            decimalTextBox.Text = "";
             char[] splitters = new char[] { ' ' };
             
             string[] laCase = bcdValue.Split(splitters);
@@ -141,9 +142,9 @@ namespace ConvertisseurNumerique
             {
                 int convert = Convert.ToInt32(laCase[i], 2);
                 
-                binaryTextBox.Text += Convert.ToString(convert,10);
+                decimalTextBox.Text += Convert.ToString(convert,10);
             }
-            convertToAll(binaryTextBox.Text, 10);
+            convertToAll(decimalTextBox.Text, 10);
         }
 
         /// <summary>
