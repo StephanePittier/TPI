@@ -86,7 +86,7 @@ namespace ConvertisseurNumerique
         /// <param name="userValue"></param>
         private void convertToAll(string userValue, int baseType)
         {           
-            int value = Convert.ToInt32(userValue, baseType);
+                int value = Convert.ToInt32(userValue, baseType);
 
             binaryTextBox.Text = Convert.ToString(value, 2);
             octalTextBox.Text = Convert.ToString(value, 8);

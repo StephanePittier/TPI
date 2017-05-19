@@ -142,7 +142,7 @@
             this.Controls.Add(this.type2ComboBox);
             this.Controls.Add(this.type1ComboBox);
             this.Name = "FormCalculator";
-            this.Text = "Form2";
+            this.Text = "Opérations";
             this.ResumeLayout(false);
             this.PerformLayout();
 

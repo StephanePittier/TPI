@@ -50,8 +50,10 @@ namespace ConvertisseurNumerique
         {
             int value1 = Convert.ToInt32(userValue1, userBase1);
             int value2 = Convert.ToInt32(userValue2, userBase2);
-            string result = "";
-            
+            //string result = "";
+            string[] result = new string[userValue1.Length+1];
+
+
 
             if (userBase1 == userBase2)
             {
@@ -72,8 +74,11 @@ namespace ConvertisseurNumerique
                         userValue2 = "0" + userValue2;
                     }
                 }
-                int[] retenue = new int[userValue1.Length];
-                    addValue(userValue1, userValue2,userBase1, result, retenue);
+                int[,] retenue = new int[userValue1.Length,userValue1.Length+1];
+                //addValue(userValue1, userValue2,userBase1, result, retenue);
+                //substractValue(userValue1, userValue2,userBase1, result, retenue);
+                //multipliacateValue(userValue1, userValue2, userBase1, result, retenue);
+                divideValue(userValue1, userValue2);
             }
             else
             {
@@ -111,6 +116,10 @@ namespace ConvertisseurNumerique
                     {
                         retenue[i - 1] = 1;
                     }
+                    else
+                    {
+                        result = "1" + result;
+                    }
                 }
                 else
                 {
@@ -122,12 +131,20 @@ namespace ConvertisseurNumerique
                 }
             }
         }
-        
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value1">Valeur 1 de l'utilisateur convertie dans son format</param>
+        /// <param name="value2">Valeur 2 de l'utilisateur convertie dans son format</param>
+        /// <param name="baseValue">Prends la base de la valeur 1 ou 2 pour afficher le résultat en fonction</param>
+        /// <param name="result">Stock et permet l'affichage du résultat</param>
+        /// <param name="retenue">Tableau de int permettant de stocker les retenues lors de l'addition en colone. Est aussi utilisée lors de l'affichage</param>
         private void substractValue(string value1, string value2, int baseValue, string result, int[] retenue)
         {
             retenue[value1.Length - 1] = 0;
 
+            //pour chaque chiffre effectue une soustraction et place les retenues dans le tableau à l'index actuel
             for (int i = value1.Length - 1; i >= 0; i--)
             {
                 string d = Convert.ToString(value1[i]);
@@ -136,25 +153,81 @@ namespace ConvertisseurNumerique
                 int f = Convert.ToInt32(d);
                 int g = Convert.ToInt32(e);
 
+                //si la soustraction est supérieur à 0 le programme ne va pas placer de retenues
                 if (f + retenue[i] - g >= 0)
                 {
                     result = Convert.ToString(f + retenue[i] - g) + result;
                     
                 }
+                //sinon le programme diminue le chiffre suivant de 1 est place la base-1 en retenue de la valeur actuelle
                 else
                 {
                     string temp = Convert.ToString(value1[i - 1]);
                     int h = Convert.ToInt32(temp);
                     h = h - 1;
                     //value1[i-1] = Convert.ToString(h);
-                    retenue[i] = 10;
+                    retenue[i] = baseValue;
                     result = Convert.ToString(f + retenue[i]- g) + result;
-                    
-
                 }
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value1">Valeur 1 de l'utilisateur convertie dans son format</param>
+        /// <param name="value2">Valeur 2 de l'utilisateur convertie dans son format</param>
+        /// <param name="baseValue">Prends la base de la valeur 1 ou 2 pour afficher le résultat en fonction</param>
+        /// <param name="result">Stock et permet l'affichage du résultat</param>
+        /// <param name="retenue">Tableau de int permettant de stocker les retenues lors de l'addition en colone. Est aussi utilisée lors de l'affichage</param>
+        private void multipliacateValue(string value1, string value2, int baseValue, string[] result, int[,] retenue)
+        {
+            retenue[value1.Length-1, value1.Length] = 0;
 
+            for (int i = value1.Length-1; i >=0 ; i--)
+            {
+                string d = Convert.ToString(value1[i]);
+                int f = Convert.ToInt32(d);
+
+                for (int y = value2.Length-1; y >=0; y--)
+                {
+                    string e = Convert.ToString(value2[y]);
+                    int g = Convert.ToInt32(e);
+
+                    int temp = f * g + retenue[i, i + 1];
+
+                    if (temp >=baseValue)
+                    {                       
+                        string lol = Convert.ToString(temp);
+                        retenue[i, y] = lol[0];
+                        result[i] = lol[1]+result[i];
+                    }
+                    else
+                    {
+                        result[i] += Convert.ToString(temp);
+                        retenue[i, i] = 0;
+                    }
+                }
+                
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value1">Valeur 1 de l'utilisateur convertie dans son format</param>
+        /// <param name="value2">Valeur 2 de l'utilisateur convertie dans son format</param>
+        /// <param name="baseValue">Prends la base de la valeur 1 ou 2 pour afficher le résultat en fonction</param>
+        /// <param name="result">Stock et permet l'affichage du résultat</param>
+        /// <param name="retenue">Tableau de int permettant de stocker les retenues lors de l'addition en colone. Est aussi utilisée lors de l'affichage</param>
+        private void divideValue(string value1, string value2)
+        {
+            int valueA = Convert.ToInt32(value1);
+            int valueB = Convert.ToInt32(value2);
+
+            string resultat = Convert.ToString(valueA / valueB);
+
+            MessageBox.Show(resultat);
+        }
     }
 }
