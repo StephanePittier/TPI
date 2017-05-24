@@ -66,9 +66,7 @@ namespace ConvertisseurNumerique
 
                  baseNumber = Convert.ToInt32(basetype[1]);
                  convertToAll(valueTextBox.Text, baseNumber);
-            }
-            
-
+            }         
         }
 
         /// <summary>
@@ -83,7 +81,8 @@ namespace ConvertisseurNumerique
         /// <summary>
         /// Permet de convertir dans les format du Binaire | Décimal | Octal | Hexadécimal
         /// </summary>
-        /// <param name="userValue"></param>
+        /// <param name="userValue">Valeur entrée par l'utilisateur dans le textbox</param>
+        /// <param name="baseType">base de la valeur obtenue avec le split dans la fonction convertButton_Click</param>
         private void convertToAll(string userValue, int baseType)
         {           
                 int value = Convert.ToInt32(userValue, baseType);
@@ -149,7 +148,7 @@ namespace ConvertisseurNumerique
 
         /// <summary>
         /// Permet de convertir le binaire en code Gray
-        /// Basé sur : http://stackoverflow.com/questions/1691074/gray-code-in-net
+        /// Inspiré de  : http://stackoverflow.com/questions/1691074/gray-code-in-net
         /// /// <param name="binaryValue">Valeur Binaire de la conversion en cours</param>
         /// </summary>
         private void convertToGray(string binaryValue)
