@@ -4,15 +4,8 @@
 ///Description : Permet d' effectuer une opération arithmétique de type + - * /
 ///              avec deux valeurs en Décimal | Binaire | Octal | Hexadécimal
 ///              
- 
+
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConvertisseurNumerique
@@ -34,19 +27,26 @@ namespace ConvertisseurNumerique
             char[] splitters = new char[] { '|' };
             string test = Convert.ToString(type1ComboBox.SelectedItem);
             string test2 = Convert.ToString(type2ComboBox.SelectedItem);
-
-            string[] basetype = test.Split(splitters);
-            int baseNumber1 = Convert.ToInt32(basetype[1]);
-            
-            basetype = test2.Split(splitters);
-            int baseNumber2 = Convert.ToInt32(basetype[1]);
+            string operation = Convert.ToString(operationsComboBox.SelectedItem);
 
             string valueBase1 = value1TextBox.Text;
             string valueBase2 = value2TextBox.Text;
 
-            string operation = Convert.ToString(operationsComboBox.SelectedItem);
+            //Si les informations de bases ne sont pas entrées, avertit l'utilisateur
+            if (test == "" || test2 == "" || valueBase1 == "" || valueBase2 == "" || operation == "")
+            {
+                MessageBox.Show("Pour lancer une opération, les 2 valeurs ainsi que leur type et un opératuer doivent être séléctionné !");
+            }
+            else
+            {
+                string[] basetype = test.Split(splitters);
+                int baseNumber1 = Convert.ToInt32(basetype[1]);
+                basetype = test2.Split(splitters);
+                int baseNumber2 = Convert.ToInt32(basetype[1]);
 
-            calcualteValues(valueBase1, valueBase2, baseNumber1, baseNumber2, operation);
+                //Permet de lancer les opérations
+                calcualteValues(valueBase1, valueBase2, baseNumber1, baseNumber2, operation);
+            }
         }
 
         /// <summary>
@@ -65,10 +65,10 @@ namespace ConvertisseurNumerique
             //string[] result = new string[userValue1.Length+1];
 
             //Initialisation valeur du switch 
-            string add = "+";
-            string diminued = "-";
-            string multiplicate = "*";
-            string divide = "/";
+            const string ADD = "+";
+            const string DIMINUED = "-";
+            const string MULTIPLICATE = "*";
+            const string DIVIDE = "/";
 
 
 
@@ -98,33 +98,31 @@ namespace ConvertisseurNumerique
                 }
                 int[] retenue = new int[userValue1.Length];
 
+            //Permet de choisir la bonne fonction pour chaque opérations
             switch(userOperation)
             {
-                case add:
+                case ADD:
                     {
                         addValue(userValue1, userValue2, userBase1, result, retenue);
                         break;
                     }
-                case diminued:
+                case DIMINUED:
                     {
                         substractValue(userValue1, userValue2, userBase1, result, retenue);
                         break;
                     }
-                case multiplicate:
+                case MULTIPLICATE:
                     {
                         multipliacateValue(userValue1, userValue2, userBase1);
                         break;
 
                     }
-                case divide:
+                case DIVIDE:
                     {
                         divideValue(userValue1, userValue2);
                         break;
                     }
-            }
-            
-            
-           
+            }           
         }
 
         /// <summary>
@@ -173,7 +171,7 @@ namespace ConvertisseurNumerique
                 }
             }
 
-            showResult(value1, value2, result, restraint);
+            showResult(value1, value2, result);
         }
 
         /// <summary>
@@ -186,12 +184,13 @@ namespace ConvertisseurNumerique
         /// <param name="restraint">Tableau de int permettant de stocker les retenues lors de l'addition en colone. Est aussi utilisée lors de l'affichage</param>
         private void substractValue(string value1, string value2, int baseValue, string result, int[] restraint)
         {
+            char[] charValue1 = value1.ToCharArray();
             restraint[value1.Length - 1] = 0;
 
             //pour chaque chiffre effectue une soustraction et place les retenues dans le tableau à l'index actuel
             for (int i = value1.Length - 1; i >= 0; i--)
             {
-                string stringValue1Unit = Convert.ToString(value1[i]);
+                string stringValue1Unit = Convert.ToString(charValue1[i]);
                 string stringValue2Unit = Convert.ToString(value2[i]);
 
                 int intValue1Unit = Convert.ToInt32(stringValue1Unit);
@@ -203,16 +202,18 @@ namespace ConvertisseurNumerique
                     result = Convert.ToString(intValue1Unit + restraint[i] - intValue2Unit) + result;
                     
                 }
-                //sinon le programme diminue le chiffre suivant de 1 est place la base-1 en retenue de la valeur actuelle
+                //sinon le programme diminue le chiffre suivant de 1 est place la base en retenue de la valeur actuelle
                 else
                 {
                     string temp = Convert.ToString(value1[i - 1]);
-                    int valueDiminued = Convert.ToInt32(temp);                   
-                    //value1[i-1] = Convert.ToString(valueDiminued-1);
+                    int valueDiminued = Convert.ToInt32(temp);
+                    temp = Convert.ToString(valueDiminued - 1);
+                    charValue1[i-1] = Convert.ToChar(temp);
                     restraint[i] = baseValue;
                     result = Convert.ToString(intValue1Unit + restraint[i]- intValue2Unit) + result;
                 }
             }
+            showResult(value1, value2, result);
         }
 
         /// <summary>
@@ -223,7 +224,7 @@ namespace ConvertisseurNumerique
         /// <param name="baseValue">Prends la base de la valeur 1 ou 2 pour afficher le résultat en fonction</param>
         private void multipliacateValue(string value1, string value2, int baseValue)
         {
-            //tableaux uniquement pour cette fonction
+            //Contrairement aux autres fonctions, vu que ce sont des tableaux à 2 dimensions, ils sont déclaré dnas la fonction
             string[,] result = new string[value1.Length+2, value1.Length+1];
             int[,] restraint = new int[value1.Length, value1.Length];
             
@@ -231,6 +232,7 @@ namespace ConvertisseurNumerique
             //première retenue toujours à 0
             restraint[value1.Length - 1, value2.Length - 1] = 0;
 
+            //Recupère chaque unité des 2 valeurs 
             for (int i = value1.Length-1; i >= 0; i--)
             {
                 int tempRestrain = 0;
@@ -240,13 +242,14 @@ namespace ConvertisseurNumerique
 
                 if(difference >0)
                 {
-
+                    
                 }
                 for (int y = value2.Length-1; y >= 0; y--)
                 {
                     string unitValue2 = Convert.ToString(value2[y]);
                     int factor2 = Convert.ToInt32(unitValue2);
 
+                    //vérifie la valeur de la multiplications et mets les bon elements au bon endroits
                     if (factor1 * factor2 + tempRestrain < baseValue)
                     {
                         result[i, y+1] = Convert.ToString(factor1 * factor2 + restraint[i, y + 1]);
@@ -276,11 +279,12 @@ namespace ConvertisseurNumerique
         /// <param name="value2">Valeur 2 de l'utilisateur convertie dans son format</param>
         private void divideValue(string value1, string value2)
         {
+            //Effectue une simple division entre les nombres
             int valueA = Convert.ToInt32(value1);
             int valueB = Convert.ToInt32(value2);
 
-            MessageBox.Show(Convert.ToString(valueA / valueB));
-
+            string result = Convert.ToString(valueA / valueB);
+            showResult(value1, value2, result);
         }
 
         /// <summary>
@@ -289,10 +293,8 @@ namespace ConvertisseurNumerique
         /// <param name="value1"></param>
         /// <param name="value2"></param>
         /// <param name="result"></param>
-        /// <param name="restraint"></param>
-        private void showResult(string value1, string value2, string result, int[] restraint)
-        {
-            restraintLextBox.Text = "";
+        private void showResult(string value1, string value2, string result)
+        {            
             val1ResultTextBox.Text = value1;
             val2ResultTextBox.Text = value2;
             resultTextBox.Text = result;

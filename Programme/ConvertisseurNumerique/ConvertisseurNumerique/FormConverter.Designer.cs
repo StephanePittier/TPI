@@ -191,6 +191,7 @@
             this.helpButton.TabIndex = 15;
             this.helpButton.Text = "Aide ?";
             this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // calculatorButton
             // 

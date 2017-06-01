@@ -6,13 +6,6 @@
 ///              Décimal | Binaire | Octal | Hexadécimal
 ///              Code BCD | Code Gray
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConvertisseurNumerique
@@ -45,27 +38,35 @@ namespace ConvertisseurNumerique
         /// <param name="e"></param>
         private void convertButton_Click(object sender, EventArgs e)
         {
-            checkIntegrityValue();
-            string exception = Convert.ToString(typesComboBox.SelectedItem);
-            int baseNumber;
-
-
-            if (exception == "Code BCD")
+            //checkIntegrityValue();
+            if (valueTextBox.Text == "" || typesComboBox.SelectedItem == null)
             {
-                convertBcdToDecimal(valueTextBox.Text);
-            }
-            else if (exception == "Code GRAY")
-            {
-                convertGrayToBinary(valueTextBox.Text);
+                MessageBox.Show("Veuillez choisir un type et une valeur !");
+
             }
             else
             {
-                char[] splitters = new char[] { '|' };
-                string test = Convert.ToString(typesComboBox.SelectedItem);
-                string[] basetype = test.Split(splitters);
+                string exception = Convert.ToString(typesComboBox.SelectedItem);
+                int baseNumber;
 
-                 baseNumber = Convert.ToInt32(basetype[1]);
-                 convertToAll(valueTextBox.Text, baseNumber);
+
+                if (exception == "Code BCD")
+                {
+                    convertBcdToDecimal(valueTextBox.Text);
+                }
+                else if (exception == "Code GRAY")
+                {
+                    convertGrayToBinary(valueTextBox.Text);
+                }
+                else
+                {
+                    char[] splitters = new char[] { '|' };
+                    string test = Convert.ToString(typesComboBox.SelectedItem);
+                    string[] basetype = test.Split(splitters);
+
+                    baseNumber = Convert.ToInt32(basetype[1]);
+                    convertToAll(valueTextBox.Text, baseNumber);
+                }
             }         
         }
 
@@ -76,6 +77,7 @@ namespace ConvertisseurNumerique
         {
             if (valueTextBox.Text == "" || typesComboBox.SelectedItem == null)
                 MessageBox.Show("Veuillez choisir un type et une valeur !");
+
         }
 
         /// <summary>
@@ -204,6 +206,14 @@ namespace ConvertisseurNumerique
             }
 
             convertToAll(binaryTextBox.Text, 2);
+        }
+
+        /// <summary>
+        /// Permet de montrer plusieurs petites informations en cliquant sur le bouton d'aide
+        /// </summary>
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Devloppeur : Stéphane Pittier \nConvertisseur numérique pour ELEOC \nRemarques : Les nombres à virgules ne fonctionnes pas !");
         }
     }
 }

@@ -37,14 +37,12 @@
             this.value2Label = new System.Windows.Forms.Label();
             this.calculateButton = new System.Windows.Forms.Button();
             this.resultPanel = new System.Windows.Forms.Panel();
-            this.restraintLabel = new System.Windows.Forms.Label();
-            this.val1ResultLabel = new System.Windows.Forms.Label();
-            this.val2ResultLabel = new System.Windows.Forms.Label();
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.restraintLextBox = new System.Windows.Forms.TextBox();
-            this.resultTextBox = new System.Windows.Forms.TextBox();
-            this.val2ResultTextBox = new System.Windows.Forms.TextBox();
             this.val1ResultTextBox = new System.Windows.Forms.TextBox();
+            this.val2ResultTextBox = new System.Windows.Forms.TextBox();
+            this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.resultLabel = new System.Windows.Forms.Label();
+            this.val2ResultLabel = new System.Windows.Forms.Label();
+            this.val1ResultLabel = new System.Windows.Forms.Label();
             this.resultPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,42 +132,39 @@
             this.resultPanel.Controls.Add(this.val1ResultTextBox);
             this.resultPanel.Controls.Add(this.val2ResultTextBox);
             this.resultPanel.Controls.Add(this.resultTextBox);
-            this.resultPanel.Controls.Add(this.restraintLextBox);
             this.resultPanel.Controls.Add(this.resultLabel);
             this.resultPanel.Controls.Add(this.val2ResultLabel);
             this.resultPanel.Controls.Add(this.val1ResultLabel);
-            this.resultPanel.Controls.Add(this.restraintLabel);
             this.resultPanel.Location = new System.Drawing.Point(12, 246);
             this.resultPanel.Name = "resultPanel";
             this.resultPanel.Size = new System.Drawing.Size(276, 292);
             this.resultPanel.TabIndex = 8;
             // 
-            // restraintLabel
+            // val1ResultTextBox
             // 
-            this.restraintLabel.AutoSize = true;
-            this.restraintLabel.Location = new System.Drawing.Point(3, 40);
-            this.restraintLabel.Name = "restraintLabel";
-            this.restraintLabel.Size = new System.Drawing.Size(43, 13);
-            this.restraintLabel.TabIndex = 1;
-            this.restraintLabel.Text = "retenue";
+            this.val1ResultTextBox.Location = new System.Drawing.Point(62, 63);
+            this.val1ResultTextBox.Name = "val1ResultTextBox";
+            this.val1ResultTextBox.Size = new System.Drawing.Size(100, 20);
+            this.val1ResultTextBox.TabIndex = 8;
+            this.val1ResultTextBox.Enabled = false;
+
             // 
-            // val1ResultLabel
+            // val2ResultTextBox
             // 
-            this.val1ResultLabel.AutoSize = true;
-            this.val1ResultLabel.Location = new System.Drawing.Point(3, 66);
-            this.val1ResultLabel.Name = "val1ResultLabel";
-            this.val1ResultLabel.Size = new System.Drawing.Size(46, 13);
-            this.val1ResultLabel.TabIndex = 2;
-            this.val1ResultLabel.Text = "Valeur 1";
+            this.val2ResultTextBox.Location = new System.Drawing.Point(62, 89);
+            this.val2ResultTextBox.Name = "val2ResultTextBox";
+            this.val2ResultTextBox.Size = new System.Drawing.Size(100, 20);
+            this.val2ResultTextBox.TabIndex = 7;
+            this.val2ResultTextBox.Enabled = false;
+
             // 
-            // val2ResultLabel
+            // resultTextBox
             // 
-            this.val2ResultLabel.AutoSize = true;
-            this.val2ResultLabel.Location = new System.Drawing.Point(3, 92);
-            this.val2ResultLabel.Name = "val2ResultLabel";
-            this.val2ResultLabel.Size = new System.Drawing.Size(46, 13);
-            this.val2ResultLabel.TabIndex = 3;
-            this.val2ResultLabel.Text = "Valeur 2";
+            this.resultTextBox.Location = new System.Drawing.Point(62, 115);
+            this.resultTextBox.Name = "resultTextBox";
+            this.resultTextBox.Size = new System.Drawing.Size(100, 20);
+            this.resultTextBox.TabIndex = 6;
+            this.resultTextBox.Enabled = false;
             // 
             // resultLabel
             // 
@@ -180,33 +175,23 @@
             this.resultLabel.TabIndex = 4;
             this.resultLabel.Text = "Resultat";
             // 
-            // restraintLextBox
+            // val2ResultLabel
             // 
-            this.restraintLextBox.Location = new System.Drawing.Point(62, 37);
-            this.restraintLextBox.Name = "restraintLextBox";
-            this.restraintLextBox.Size = new System.Drawing.Size(100, 20);
-            this.restraintLextBox.TabIndex = 5;
+            this.val2ResultLabel.AutoSize = true;
+            this.val2ResultLabel.Location = new System.Drawing.Point(3, 92);
+            this.val2ResultLabel.Name = "val2ResultLabel";
+            this.val2ResultLabel.Size = new System.Drawing.Size(46, 13);
+            this.val2ResultLabel.TabIndex = 3;
+            this.val2ResultLabel.Text = "Valeur 2";
             // 
-            // resultTextBox
+            // val1ResultLabel
             // 
-            this.resultTextBox.Location = new System.Drawing.Point(62, 115);
-            this.resultTextBox.Name = "resultTextBox";
-            this.resultTextBox.Size = new System.Drawing.Size(100, 20);
-            this.resultTextBox.TabIndex = 6;
-            // 
-            // val2ResultTextBox
-            // 
-            this.val2ResultTextBox.Location = new System.Drawing.Point(62, 89);
-            this.val2ResultTextBox.Name = "val2ResultTextBox";
-            this.val2ResultTextBox.Size = new System.Drawing.Size(100, 20);
-            this.val2ResultTextBox.TabIndex = 7;
-            // 
-            // val1ResultTextBox
-            // 
-            this.val1ResultTextBox.Location = new System.Drawing.Point(62, 63);
-            this.val1ResultTextBox.Name = "val1ResultTextBox";
-            this.val1ResultTextBox.Size = new System.Drawing.Size(100, 20);
-            this.val1ResultTextBox.TabIndex = 8;
+            this.val1ResultLabel.AutoSize = true;
+            this.val1ResultLabel.Location = new System.Drawing.Point(3, 66);
+            this.val1ResultLabel.Name = "val1ResultLabel";
+            this.val1ResultLabel.Size = new System.Drawing.Size(46, 13);
+            this.val1ResultLabel.TabIndex = 2;
+            this.val1ResultLabel.Text = "Valeur 1";
             // 
             // FormCalculator
             // 
@@ -242,13 +227,11 @@
         private System.Windows.Forms.Label value2Label;
         private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.Panel resultPanel;
-        private System.Windows.Forms.Label restraintLabel;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Label val2ResultLabel;
         private System.Windows.Forms.Label val1ResultLabel;
         private System.Windows.Forms.TextBox val1ResultTextBox;
         private System.Windows.Forms.TextBox val2ResultTextBox;
         private System.Windows.Forms.TextBox resultTextBox;
-        private System.Windows.Forms.TextBox restraintLextBox;
     }
 }
