@@ -185,6 +185,7 @@ namespace ConvertisseurNumerique
         private void convertGrayToBinary(string grayValue)
         {
             binaryTextBox.Text = "";
+            //pour chaque bit vérifie sa valeur en fonction du bit précédant
             for (int i = 0; i < grayValue.Length; i++)
             {
                 if (i == 0)

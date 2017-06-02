@@ -225,52 +225,67 @@ namespace ConvertisseurNumerique
         private void multipliacateValue(string value1, string value2, int baseValue)
         {
             //Contrairement aux autres fonctions, vu que ce sont des tableaux à 2 dimensions, ils sont déclaré dnas la fonction
-            string[,] result = new string[value1.Length+2, value1.Length+1];
-            int[,] restraint = new int[value1.Length, value1.Length];
-            
+            string[,] result = new string[value1.Length, value1.Length+2];
+            int[,] restraint = new int[value1.Length, value1.Length+2];
+
 
             //première retenue toujours à 0
             restraint[value1.Length - 1, value2.Length - 1] = 0;
 
             //Recupère chaque unité des 2 valeurs 
-            for (int i = value1.Length-1; i >= 0; i--)
+            for (int i = value1.Length - 1; i >= 0; i--)
             {
-                int tempRestrain = 0;
+                int tempRestraint = 0;
                 string unitValue1 = Convert.ToString(value1[i]);
                 int factor1 = Convert.ToInt32(unitValue1);
-                int difference = value1.Length - 1 - i;
+                int counterRestraint = value1.Length+1;
 
-                if(difference >0)
+                //permet de rajouter les 0 entre chaque niveau de la multiplications
+                int difference = value1.Length - 1 - i;
+                if (difference > 0)
                 {
-                    
+                    for (int j = difference; j > 0; j--)
+                    {
+                        result[i, counterRestraint] = Convert.ToString(0);
+                        counterRestraint--;
+                    }
                 }
-                for (int y = value2.Length-1; y >= 0; y--)
+                
+                for (int y = value2.Length - 1; y >= 0; y--)
                 {
                     string unitValue2 = Convert.ToString(value2[y]);
                     int factor2 = Convert.ToInt32(unitValue2);
 
                     //vérifie la valeur de la multiplications et mets les bon elements au bon endroits
-                    if (factor1 * factor2 + tempRestrain < baseValue)
+                    if (factor1 * factor2 + tempRestraint < baseValue)
                     {
-                        result[i, y+1] = Convert.ToString(factor1 * factor2 + restraint[i, y + 1]);
-                        tempRestrain = restraint[i, y];
+                        result[i, counterRestraint] = Convert.ToString(factor1 * factor2 + tempRestraint);
+                        tempRestraint = restraint[i, counterRestraint];
                     }
                     else
                     {
-                        string temp = Convert.ToString(factor1 * factor2 + tempRestrain);
-                        result[i, y+1] = Convert.ToString(temp[1]);
+                        string temp = Convert.ToString(factor1 * factor2 + tempRestraint);
+                        result[i, counterRestraint] = Convert.ToString(temp[1]);
                         temp = Convert.ToString(temp[0]);
-                        restraint[i, y] = Convert.ToInt32(temp);
-                        tempRestrain = restraint[i, y];
+                        restraint[i, counterRestraint] = Convert.ToInt32(temp);
+                        tempRestraint = restraint[i, counterRestraint];
                     }
 
-                    if(y == 0)
+                    if (y == 0)
                     {
-                        result[i, y] = Convert.ToString(tempRestrain); 
+                        result[i, y] = Convert.ToString(tempRestraint);
                     }
+
+                    counterRestraint--;
                 }
             }
+            //Création des valeurs résultats pour les additionner entre elle
+            val1ResultTextBox.Text = value1;
+            val2ResultTextBox.Text = value2;
+
+            resultTextBox.Text = Convert.ToString(Convert.ToInt32(value1) * Convert.ToInt32(value2));
         }
+        /// end multipliacateValue
 
         /// <summary>
         /// Fonction permettant d'effectuer une division en colone entre 2 valeurs de meme base entrée par l'utilisateur.

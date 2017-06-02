@@ -142,29 +142,27 @@
             // 
             // val1ResultTextBox
             // 
+            this.val1ResultTextBox.Enabled = false;
             this.val1ResultTextBox.Location = new System.Drawing.Point(62, 63);
             this.val1ResultTextBox.Name = "val1ResultTextBox";
             this.val1ResultTextBox.Size = new System.Drawing.Size(100, 20);
             this.val1ResultTextBox.TabIndex = 8;
-            this.val1ResultTextBox.Enabled = false;
-
             // 
             // val2ResultTextBox
             // 
+            this.val2ResultTextBox.Enabled = false;
             this.val2ResultTextBox.Location = new System.Drawing.Point(62, 89);
             this.val2ResultTextBox.Name = "val2ResultTextBox";
             this.val2ResultTextBox.Size = new System.Drawing.Size(100, 20);
             this.val2ResultTextBox.TabIndex = 7;
-            this.val2ResultTextBox.Enabled = false;
-
             // 
             // resultTextBox
             // 
+            this.resultTextBox.Enabled = false;
             this.resultTextBox.Location = new System.Drawing.Point(62, 115);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(100, 20);
             this.resultTextBox.TabIndex = 6;
-            this.resultTextBox.Enabled = false;
             // 
             // resultLabel
             // 
@@ -207,6 +205,8 @@
             this.Controls.Add(this.value1TextBox);
             this.Controls.Add(this.type2ComboBox);
             this.Controls.Add(this.type1ComboBox);
+            this.MaximumSize = new System.Drawing.Size(316, 588);
+            this.MinimumSize = new System.Drawing.Size(316, 588);
             this.Name = "FormCalculator";
             this.Text = "Opérations";
             this.resultPanel.ResumeLayout(false);

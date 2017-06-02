@@ -245,6 +245,8 @@
             this.Controls.Add(this.binaryLabel);
             this.Controls.Add(this.decimalLabel);
             this.Controls.Add(this.convertButton);
+            this.MaximumSize = new System.Drawing.Size(616, 253);
+            this.MinimumSize = new System.Drawing.Size(616, 253);
             this.Name = "FormConverter";
             this.Text = "Convertisseur";
             this.ResumeLayout(false);
